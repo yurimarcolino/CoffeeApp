@@ -17,7 +17,7 @@ export const TitleContainerStyled = styled.div`
 export const TitleContentStyled = styled.div`
   width: 36.75rem;
 
-  h1 {
+  .CoffeeTitle {
     height: 7.75rem;
 
     line-height: 3.875rem;
@@ -28,7 +28,7 @@ export const TitleContentStyled = styled.div`
     color: ${(props) => props.theme['brown-900']};
   }
 
-  p {
+  .CoffeeDescription {
     margin: 1rem 0 4.125rem 0;
     height: 3.25rem;
     line-height: 1.625rem;

@@ -18,8 +18,10 @@ export function Intro() {
     <IntroContainerStyled>
       <TitleContainerStyled>
         <TitleContentStyled>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>
+          <h1 className="CoffeeTitle">
+            Encontre o café perfeito para qualquer hora do dia
+          </h1>
+          <p className="CoffeeDescription">
             Com o Coffee delivery você recebe seu café onde estiver, a qualquer
             hora do dia
           </p>
