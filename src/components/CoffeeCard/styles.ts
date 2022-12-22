@@ -25,17 +25,25 @@ export const CoffeeCardContainerStyled = styled.div`
       margin-bottom: 0.75rem;
     }
 
-    div {
-      padding: 0.25rem 0.5rem;
-      border-radius: 6.25rem;
-      background-color: ${(props) => props.theme['yellow-100']};
+    .TagListContainer {
+      display: flex;
+      flex-direction: row;
+      max-width: 12.1875rem;
+      height: 1.3125rem;
+      gap: 0.25rem;
 
-      p {
-        font-weight: 700;
-        font-size: 0.625rem;
-        text-transform: uppercase;
-        line-height: 0.8125rem;
-        color: ${(props) => props.theme['yellow-500']};
+      .TagList {
+        padding: 0.25rem 0.5rem;
+        border-radius: 6.25rem;
+        background-color: ${(props) => props.theme['yellow-100']};
+
+        p {
+          font-weight: 700;
+          font-size: 0.625rem;
+          text-transform: uppercase;
+          line-height: 0.8125rem;
+          color: ${(props) => props.theme['yellow-500']};
+        }
       }
     }
   }

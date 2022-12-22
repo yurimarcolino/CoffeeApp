@@ -10,22 +10,32 @@ interface CoffeeProps {
   price: string
 }
 
-export function CoffeeCard() {
+export function CoffeeCard({
+  description,
+  imagePath,
+  tag,
+  name,
+  price,
+}: CoffeeProps) {
   return (
     <CoffeeCardContainerStyled>
       <header className="Header">
-        <img src={coffeSVG} alt="coffee image" />
-        <div>
-          <p>tradicional</p>
+        <img src={imagePath} alt="coffee image" />
+        <div className="TagListContainer">
+          {tag.map((item, index) => {
+            return (
+              <div className="TagList" key={index}>
+                <p>{item}</p>
+              </div>
+            )
+          })}
         </div>
       </header>
-      <strong className="CoffeeName">Expresso Tradicional</strong>
-      <p className="CoffeeDescription">
-        O tradicional café feito com água quente e grãos moídos
-      </p>
+      <strong className="CoffeeName">{name}</strong>
+      <p className="CoffeeDescription">{description}</p>
       <footer className="Footer">
         <span className="CoffeePrice">
-          R$ <strong>9,90</strong>
+          R$ <strong>{price}</strong>
         </span>
         <div className="CartOptions">
           <div>
