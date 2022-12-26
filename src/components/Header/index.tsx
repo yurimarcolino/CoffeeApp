@@ -12,7 +12,9 @@ import cartSVG from '../../assets/cart.svg'
 export function Header() {
   return (
     <HeaderContainerStyled>
-      <img src={logoSVG} alt="coffee icon" />
+      <a href="/">
+        <img src={logoSVG} alt="coffee icon" />
+      </a>
       <NavContainerStyled>
         <LocationContainerStyled>
           <img src={locationSVG} alt="location icon" />

@@ -5,6 +5,7 @@ export const HeaderContainerStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 2rem 0rem;
+  gap: 51.25rem;
 `
 
 export const NavContainerStyled = styled.div`
