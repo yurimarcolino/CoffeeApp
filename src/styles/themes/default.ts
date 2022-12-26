@@ -3,10 +3,11 @@ export const defaultTheme = {
 
   'gray-100': '#FAFAFA',
   'gray-200': '#F3F2F2',
-  'gray-300': '#E6E5E5',
+  'gray-300': '#EEEDED;',
+  'gray-400': '#E6E5E5',
 
   'brown-100': '#8D8686',
-  'browm-400': '#574F4D',
+  'brown-400': '#574F4D',
   'brown-600': '#403937',
   'brown-900': '#272221',
 
