@@ -4,11 +4,15 @@ export const IntroContainerStyled = styled.div`
   display: flex;
   flex-direction: row;
 
-  height: 100%;
-  max-height: 34rem;
+  height: 35.25rem;
 
   padding: 5.875rem 0rem;
-  gap: 4.8125rem;
+  gap: 3.5rem;
+
+  .BigCoffeeLogo {
+    width: 29.75rem;
+    height: 22.5rem;
+  }
 `
 export const TitleContainerStyled = styled.div`
   display: flex;

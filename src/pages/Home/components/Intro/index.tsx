@@ -53,7 +53,11 @@ export function Intro() {
           </ItemContainerStyled>
         </ItemsContainerStyled>
       </TitleContainerStyled>
-      <img src={bigCoffeeSVG} alt="big coffee image" />
+      <img
+        className="BigCoffeeLogo"
+        src={bigCoffeeSVG}
+        alt="big coffee image"
+      />
     </IntroContainerStyled>
   )
 }
