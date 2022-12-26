@@ -81,7 +81,7 @@ export const CoffeeCardContainerStyled = styled.div`
       display: inline;
       line-height: 1.125rem;
       font-size: 0.875rem;
-      color: ${(props) => props.theme['browm-400']};
+      color: ${(props) => props.theme['brown-400']};
 
       strong {
         font-family: 'Baloo 2';
