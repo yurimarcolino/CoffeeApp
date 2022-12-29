@@ -72,6 +72,10 @@ export const CoffeeSelectedContainerStyled = styled.div`
               color: ${(props) => props.theme['purple-500']};
             }
 
+            button:disabled {
+              cursor: not-allowed;
+            }
+
             .CoffeeSelectedQuantity {
               width: 1.25rem;
               height: 1.3125rem;
@@ -110,12 +114,7 @@ export const CoffeeSelectedContainerStyled = styled.div`
     }
 
     .CoffeeSelectedPrice {
-      width: 3.4375rem;
-      height: 21px;
-
-      font-family: 'Roboto';
-      font-style: normal;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 1rem;
       line-height: 1.3125rem;
 
