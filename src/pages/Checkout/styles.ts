@@ -4,6 +4,8 @@ export const CheckoutContainerStyled = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  padding-bottom: 240px;
+  padding-top: 40px;
 
   .FormAdressContent {
     display: flex;
