@@ -1,4 +1,5 @@
 export interface Coffee {
+  id: string
   imagePath: string
   tag: string[]
   name: string
