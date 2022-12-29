@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const SuccessContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
+  margin-top: 3.75rem;
+  min-width: 1120px;
 
   header {
     h1 {
