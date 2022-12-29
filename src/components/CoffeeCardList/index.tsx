@@ -19,14 +19,8 @@ export function CoffeeCardList() {
     <CoffeeCardListStyled>
       {data?.map((coffee) => {
         return (
-          <div key={coffee.name}>
-            <CoffeeCard
-              imagePath={coffee.imagePath}
-              tag={coffee.tag}
-              name={coffee.name}
-              description={coffee.description}
-              price={coffee.price}
-            />
+          <div key={coffee.id}>
+            <CoffeeCard coffee={coffee} />
           </div>
         )
       })}
