@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const IntroContainerStyled = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
 
   height: 35.25rem;
 
