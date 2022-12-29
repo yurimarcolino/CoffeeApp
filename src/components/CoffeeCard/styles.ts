@@ -118,6 +118,15 @@ export const CoffeeCardContainerStyled = styled.div`
 
           background: none;
           color: ${(props) => props.theme['purple-500']};
+          transition: 0.2s;
+        }
+
+        button:hover {
+          opacity: 0.85;
+        }
+
+        button:disabled {
+          cursor: not-allowed;
         }
 
         .CoffeeQuantity {
@@ -141,6 +150,11 @@ export const CoffeeCardContainerStyled = styled.div`
         border: 0;
         background: #4b2995;
         border-radius: 0.375rem;
+        transition: 0.2s;
+      }
+
+      .CartIconButtonContainer:hover {
+        opacity: 0.85;
       }
     }
   }
