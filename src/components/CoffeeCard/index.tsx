@@ -1,28 +1,40 @@
 import { CoffeeCardContainerStyled } from './styles'
-import coffeSVG from '../../assets/expresso-tradicional.svg'
 import { Plus, Minus, ShoppingCartSimple } from 'phosphor-react'
+import { Coffee } from '../../services/model'
+import { useCartContext } from '../../context/CartContext'
+import { useState } from 'react'
 
-interface CoffeeProps {
-  imagePath: string
-  tag: string[]
-  name: string
-  description: string
-  price: string
+interface CoffeeCardProps {
+  coffee: Coffee
 }
 
-export function CoffeeCard({
-  description,
-  imagePath,
-  tag,
-  name,
-  price,
-}: CoffeeProps) {
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const { addCoffeeToCart } = useCartContext()
+  const [coffeeQuantity, setCoffeeQuantity] = useState(1)
+
+  function handleShopCoffee() {
+    const coffeeSelected = {
+      ...coffee,
+      quantity: coffeeQuantity,
+    }
+
+    addCoffeeToCart(coffeeSelected)
+  }
+
+  function handleDecreaseCoffeeQuantity() {
+    if (coffeeQuantity === 1) return
+    setCoffeeQuantity((prev) => prev - 1)
+  }
+  function handleIncreaseCoffeeQuantity() {
+    setCoffeeQuantity((prev) => prev + 1)
+  }
+
   return (
     <CoffeeCardContainerStyled>
       <header className="Header">
-        <img src={imagePath} alt="coffee image" />
+        <img src={coffee.imagePath} alt="coffee image" />
         <div className="TagListContainer">
-          {tag.map((item, index) => {
+          {coffee.tag.map((item, index) => {
             return (
               <div className="TagList" key={index}>
                 <p>{item}</p>
@@ -31,23 +43,29 @@ export function CoffeeCard({
           })}
         </div>
       </header>
-      <strong className="CoffeeName">{name}</strong>
-      <p className="CoffeeDescription">{description}</p>
+      <strong className="CoffeeName">{coffee.name}</strong>
+      <p className="CoffeeDescription">{coffee.description}</p>
       <footer className="Footer">
         <span className="CoffeePrice">
-          R$ <strong>{price}</strong>
+          R$ <strong>{coffee.price}</strong>
         </span>
         <div className="CartOptions">
           <div>
-            <button>
+            <button
+              onClick={handleDecreaseCoffeeQuantity}
+              disabled={coffeeQuantity === 1}
+            >
               <Minus weight="bold" size={16} />
             </button>
-            <span className="CoffeeQuantity">1</span>
-            <button>
+            <span className="CoffeeQuantity">{coffeeQuantity}</span>
+            <button onClick={handleIncreaseCoffeeQuantity}>
               <Plus weight="bold" size={15} />
             </button>
           </div>
-          <button className="CartIconButtonContainer">
+          <button
+            className="CartIconButtonContainer"
+            onClick={handleShopCoffee}
+          >
             <ShoppingCartSimple size={32} weight="fill" color="white" />
           </button>
         </div>
