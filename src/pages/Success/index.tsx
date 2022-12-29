@@ -41,7 +41,7 @@ export function Success() {
             </div>
           </div>
         </div>
-        <img src={illustrationSVG} alt="" />
+        <img src={illustrationSVG} alt="Illustration deliveryman" />
       </div>
     </SuccessContainerStyled>
   )
