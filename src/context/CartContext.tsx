@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
 export interface Coffee {
   id: string
@@ -24,7 +24,13 @@ interface CartContextProviderProps {
 const CartContext = createContext({} as CartContextData)
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cart, setCart] = useState<Coffee[]>([])
+  const [cart, setCart] = useState<Coffee[]>(() => {
+    const storedState = localStorage.getItem('@coffee-app.1.0.0')
+
+    if (!storedState) return []
+
+    return JSON.parse(storedState)
+  })
 
   function increaseCoffeeQuantityFromCart(id: string) {
     const existingCoffee = cart.findIndex((coffee) => coffee.id === id)
@@ -38,6 +44,12 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       }),
     )
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(cart)
+
+    localStorage.setItem('@coffee-app.1.0.0', stateJSON)
+  }, [cart])
 
   function decreaseCoffeeQuantityFromCart(id: string) {
     const existingCoffee = cart.find((coffee) => coffee.id === id)

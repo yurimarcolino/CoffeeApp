@@ -17,7 +17,6 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       ...coffee,
       quantity: coffeeQuantity,
     }
-
     addCoffeeToCart(coffeeSelected)
   }
 
