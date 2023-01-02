@@ -1,8 +1,11 @@
 import { SuccessContainerStyled } from './styles'
 import illustrationSVG from '../../assets/illustration.svg'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
+import { useOrderContext } from '../../context/OrderContext'
 
 export function Success() {
+  const { orderPayment, orderAdress } = useOrderContext()
+
   return (
     <SuccessContainerStyled>
       <header>
@@ -17,9 +20,14 @@ export function Success() {
             </div>
             <div className="AddressContent">
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  {orderAdress.streetAdress}, {orderAdress.number}
+                </strong>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>
+                {orderAdress.district} - {orderAdress.city}, {orderAdress.uf}
+              </p>
             </div>
           </div>
           <div className="EstimatedDeliveryContainer">
@@ -37,7 +45,7 @@ export function Success() {
             </div>
             <div className="PaymentStatusContent">
               <p>Pagamento na entrega</p>
-              <strong>Cartão de Crédito</strong>
+              <strong>{orderPayment.payment}</strong>
             </div>
           </div>
         </div>
