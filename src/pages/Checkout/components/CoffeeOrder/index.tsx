@@ -13,7 +13,11 @@ export function CoffeeOrder() {
         return <CoffeeSelected key={coffee.id} coffee={coffee} />
       })}
       <TotalPrice cart={cart} />
-      <Button />
+      <Button
+        content="Confirmar pedido"
+        type="submit"
+        disabled={cart.length === 0}
+      />
     </CoffeeOrderContainerStyled>
   )
 }
