@@ -15,6 +15,7 @@ interface CartContextData {
   increaseCoffeeQuantityFromCart: (id: string) => void
   decreaseCoffeeQuantityFromCart: (id: string) => void
   removeCoffeeFromCart: (id: string) => void
+  removeItemsFromCart: () => void
 }
 
 interface CartContextProviderProps {
@@ -72,11 +73,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCart((prev) => prev.filter((coffee) => coffee.id !== id))
   }
 
-  function calculateCartTotalPrice(cart: Coffee[]): number {
-    return cart.reduce(
-      (acc, item) => acc + parseFloat(item.price) * item.quantity,
-      0,
-    )
+  function removeItemsFromCart() {
+    setCart([])
   }
 
   return (
@@ -87,6 +85,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         increaseCoffeeQuantityFromCart,
         decreaseCoffeeQuantityFromCart,
         removeCoffeeFromCart,
+        removeItemsFromCart,
       }}
     >
       {children}

@@ -9,6 +9,7 @@ import { FormPayment } from './components/FormSelectPayment'
 import { CheckoutContainerStyled } from './styles'
 import { useOrderContext } from '../../context/OrderContext'
 import { useNavigate } from 'react-router-dom'
+import { useCartContext } from '../../context/CartContext'
 
 const newOrderFormValidationSchema = zod.object({
   postalCode: zod.string().min(5, { message: 'Postal code required' }),
@@ -37,6 +38,8 @@ export function Checkout() {
     },
   })
 
+  const { removeItemsFromCart } = useCartContext()
+
   const navigate = useNavigate()
 
   const { addOrderAdress } = useOrderContext()
@@ -47,6 +50,7 @@ export function Checkout() {
     addOrderAdress(data)
     reset()
     navigate('/success')
+    removeItemsFromCart()
   }
 
   return (
