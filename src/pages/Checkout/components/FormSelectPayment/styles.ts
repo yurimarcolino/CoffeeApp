@@ -33,7 +33,7 @@ export const FormHeaderStyled = styled.div`
     color: ${(props) => props.theme['brown-400']};
   }
 `
-export const FormFieldsStyled = styled.form`
+export const FormFieldsStyled = styled.div`
   display: inline-flexbox;
   margin-top: 2rem;
 
