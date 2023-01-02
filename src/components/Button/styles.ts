@@ -24,4 +24,9 @@ export const ButtonStyled = styled.button`
   :hover {
     opacity: 0.85;
   }
+
+  :disabled {
+    background: ${(props) => props.theme['gray-400']};
+    cursor: not-allowed;
+  }
 `

@@ -1,5 +1,10 @@
+import { ButtonHTMLAttributes, HtmlHTMLAttributes } from 'react'
 import { ButtonStyled } from './styles'
 
-export function Button() {
-  return <ButtonStyled>Confirmar pedido</ButtonStyled>
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  content: string
+}
+
+export function Button({ content, ...rest }: ButtonProps) {
+  return <ButtonStyled {...rest}>{content}</ButtonStyled>
 }
