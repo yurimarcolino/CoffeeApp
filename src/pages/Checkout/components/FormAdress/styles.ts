@@ -29,27 +29,16 @@ export const FormHeaderStyled = styled.div`
     color: ${(props) => props.theme['brown-400']};
   }
 `
-export const FormFieldsStyled = styled.form`
+export const FormFieldsStyled = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
 
-  input {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem;
-
-    height: 2.625rem;
-
-    background: ${(props) => props.theme['gray-300']};
-
-    border: 0.0625rem solid ${(props) => props.theme['gray-400']};
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
-  }
-
-  #postal-code {
+  #postalCode {
     width: 12.5rem;
+  }
+  #streetAdress {
+    width: 100%;
   }
 
   .ComplementContainer {

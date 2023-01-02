@@ -1,10 +1,19 @@
+import { useFormContext } from 'react-hook-form'
+
 import {
   FormAdressContainerStyled,
   FormFieldsStyled,
   FormHeaderStyled,
 } from './styles'
 import { MapPinLine } from 'phosphor-react'
+import { NewOrderFormData } from '../..'
+import { ErrorStyled, InputContainerStyled } from '../../styles'
 export function FormAdress() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<NewOrderFormData>()
+
   return (
     <FormAdressContainerStyled>
       <FormHeaderStyled>
@@ -17,16 +26,83 @@ export function FormAdress() {
         </div>
       </FormHeaderStyled>
       <FormFieldsStyled>
-        <input id="postal-code" type="text" placeholder="CEP" />
-        <input id="street-adress" type="text" placeholder="Rua" />
+        <InputContainerStyled>
+          {errors.postalCode?.message && (
+            <ErrorStyled>{errors.postalCode?.message}</ErrorStyled>
+          )}
+          <input
+            id="postalCode"
+            type="text"
+            placeholder="CEP"
+            {...register('postalCode')}
+          />
+        </InputContainerStyled>
+
+        <InputContainerStyled>
+          {errors.streetAdress?.message && (
+            <ErrorStyled>{errors.streetAdress?.message}</ErrorStyled>
+          )}
+          <input
+            id="streetAdress"
+            type="text"
+            placeholder="Rua"
+            {...register('streetAdress')}
+          />
+        </InputContainerStyled>
+
         <div className="ComplementContainer">
-          <input id="number" type="text" placeholder="Número" />
-          <input id="complement" type="text" placeholder="Complemento" />
+          <InputContainerStyled>
+            {errors.number?.message && (
+              <ErrorStyled>{errors.number?.message}</ErrorStyled>
+            )}
+            <input
+              id="number"
+              type="text"
+              placeholder="Número"
+              {...register('number')}
+            />
+          </InputContainerStyled>
+
+          <InputContainerStyled>
+            <input
+              id="complement"
+              type="text"
+              placeholder="Complemento"
+              {...register('complement')}
+            />
+          </InputContainerStyled>
         </div>
         <div className="CityContainer">
-          <input id="distric" type="text" placeholder="Bairro" />
-          <input id="city" type="text" placeholder="Cidade" />
-          <input id="uf" type="text" placeholder="UF" />
+          <InputContainerStyled>
+            {errors.district?.message && (
+              <ErrorStyled>{errors.district?.message}</ErrorStyled>
+            )}
+            <input
+              id="distric"
+              type="text"
+              placeholder="Bairro"
+              {...register('district')}
+            />
+          </InputContainerStyled>
+
+          <InputContainerStyled>
+            {errors.city?.message && (
+              <ErrorStyled>{errors.city?.message}</ErrorStyled>
+            )}
+            <input
+              id="city"
+              type="text"
+              placeholder="Cidade"
+              {...register('city')}
+            />
+          </InputContainerStyled>
+
+          <InputContainerStyled>
+            {errors.uf?.message && (
+              <ErrorStyled>{errors.uf?.message}</ErrorStyled>
+            )}
+            <input id="uf" type="text" placeholder="UF" {...register('uf')} />
+          </InputContainerStyled>
         </div>
       </FormFieldsStyled>
     </FormAdressContainerStyled>
